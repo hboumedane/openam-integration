@@ -1,0 +1,59 @@
+@()
+@moreScripts = {
+    <script src='@routes.Assets.at("scripts/profile.js")' type="text/javascript" charset="utf-8"></script>
+}
+@moreStyles = {
+    <link type="text/css" rel="stylesheet" href="@routes.Assets.at("styles/profile.css")"/>
+}
+
+@main("Profile", moreScripts, moreStyles) {
+    <!-- Urls for Ajax requests -->
+    <input id="profile-url" type="hidden" value="@org.spend.openam.integration.controller.routes.ProfileController.userProfile()"/>
+    <input id="update-profile-url" type="hidden" value="@org.spend.openam.integration.controller.routes.ProfileController.update()"/>
+    <input id="logout-url" type="hidden" value="@org.spend.openam.integration.controller.routes.ProfileController.logout()"/>
+    <input id="message" type="hidden" value="@flash().get("message")"/>
+    @*<input id="supported-formats-url" type="hidden" value="@org.spend.reportserver.integration.controller.routes.ReportExportController.supportedFormats()"/>*@
+    @*<input id="list-url" type="hidden" value="@org.spend.reportserver.integration.controller.routes.ReportExportController.list()"/>*@
+    <!-- Page -->
+    <div id="edit_profile_form" class="row">
+        <div class="row">
+            <div id="image-preloader" class="preloader-wrapper big active">
+                <img id="image" class="materialboxed z-depth-5" height="250" src="https://morganparadis.files.wordpress.com/2014/08/9674878_orig.jpg">
+            </div>
+        </div>
+        <div class="row input-field">
+            <i class="mdi-content-link prefix"></i>
+            <input id="image-input" type="text">
+            <label for="image">To change your profile image paste the link</label>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="mdi-action-account-circle prefix"></i>
+                <input id="full_name" type="text" class="validate">
+                <label for="full_name">Full Name</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="mdi-communication-email prefix"></i>
+                <input id="email" type="email" class="validate">
+                <label for="email">Email</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="mdi-action-https prefix"></i>
+                <input id="username" type="text" class="validate">
+                <label for="username">Username</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="mdi-hardware-security prefix"></i>
+                <input id="password" type="password">
+                <label for="password">Password</label>
+            </div>
+        </div>
+
+        <button id="save_profile_button" class="btn waves-effect waves-light" type="submit" name="action">
+            Save
+            <i class="mdi-content-send right"></i>
+        </button>
+    </div>
+}

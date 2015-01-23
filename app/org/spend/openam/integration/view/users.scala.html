@@ -1,0 +1,17 @@
+@()
+@moreScripts = {
+    <script src='@routes.Assets.at("scripts/users.js")' type="text/javascript" charset="utf-8"></script>
+}
+@moreStyles = {
+    <link type="text/css" rel="stylesheet" href="@routes.Assets.at("styles/users.css")"/>
+}
+
+@main("Search", moreScripts, moreStyles) {
+    <!-- Urls for Ajax requests -->
+    <input id="list-users-url" type="hidden" value="@org.spend.openam.integration.controller.routes.SearchController.listAllUsers()"/>
+
+    <!-- Page -->
+    <div id="users-here">
+        <div class="flow-text">No users 😭</div>
+    </div>
+}

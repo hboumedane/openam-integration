@@ -1,0 +1,65 @@
+@(title: String, moreScripts: Html = Html(""), moreStyles: Html = Html(""))(content: Html)
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
+<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
+<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en" itemscope itemtype="http://schema.org/Product"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>@title</title>
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="author" content="humans.txt">
+
+        <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+
+            <!-- Facebook Metadata /-->
+        <meta property="fb:page_id" content="" />
+        <meta property="og:image" content="" />
+        <meta property="og:description" content=""/>
+        <meta property="og:title" content=""/>
+
+            <!-- Google+ Metadata /-->
+        <meta itemprop="name" content="">
+        <meta itemprop="description" content="">
+        <meta itemprop="image" content="">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+            <!-- We highly recommend you use SASS and write your custom styles in sass/_custom.scss.
+		 However, there is a blank style.css in the css directory should you prefer -->
+        <link type="text/css" rel="stylesheet" href="@routes.Assets.at("styles/materialize.min.css")" media="screen,projection"/>
+        @moreStyles
+    </head>
+
+    <body>
+            <!-- Primary Page Layout -->
+        @header()
+        <div id="main_container" class="container">
+            <div id="main-progress" class="progress">
+                <div class="indeterminate"></div>
+            </div>
+            @content
+        </div>
+        @footer()
+            <!-- Scripts -->
+        <script src="@routes.Assets.at("scripts/jquery.js")" type="text/javascript"></script>
+        <script type="text/javascript" src="@routes.Assets.at("scripts/materialize.min.js")"></script>
+        <script type="text/javascript">
+            $('.button-collapse').sideNav({menuWidth: 240, activationWidth: 70});
+        </script>
+
+            <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+	   chromium.org/developers/how-tos/chrome-frame-getting-started -->
+            <!--[if lt IE 7 ]>
+	<script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+	<script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+	<![endif]-->
+
+
+        @moreScripts
+    </body>
+</html>

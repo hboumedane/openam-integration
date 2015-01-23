@@ -1,0 +1,19 @@
+<nav>
+    <div class="nav-wrapper green accent-3">
+        <a href="@org.spend.openam.integration.controller.routes.WelcomeController.pageIndex()" class="brand-logo" style="padding-left:20px">PlayWithOpenAM</a>
+        <ul id="nav-mobile" class="right side-nav">
+            <li><a href="@org.spend.openam.integration.controller.routes.WelcomeController.pageIndex()">Registration</a></li>
+
+            <li class="authentication-required"><a href="@org.spend.openam.integration.controller.routes.ProfileController.pageProfile()">Profile</a>
+            </li>
+
+            <li class="authentication-required"><a href="@org.spend.openam.integration.controller.routes.SearchController.pageUsers()">Users</a></li>
+            <li class="authentication-required"><a href="@org.spend.openam.integration.controller.routes.ProfileController.logout()">Logout</a></li>
+        </ul>
+
+            <!-- Include this line below -->
+        <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+            <!-- End -->
+
+    </div>
+</nav>

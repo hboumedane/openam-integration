@@ -1,0 +1,70 @@
+@()
+@moreScripts = {
+    <script src='@routes.Assets.at("scripts/welcome.js")' type="text/javascript" charset="utf-8"></script>
+}
+
+@moreStyles = {
+    <link type="text/css" rel="stylesheet" href="@routes.Assets.at("styles/welcome.css")"/>
+}
+
+@main("OpenAM with Play framework", moreScripts, moreStyles) {
+    <!-- Urls for Ajax requests -->
+    <input id="registration-url" type="hidden" value="@org.spend.openam.integration.controller.routes.WelcomeController.register()"/>
+    <input id="login-url" type="hidden" value="@org.spend.openam.integration.controller.routes.WelcomeController.authenticate()"/>
+    <input id="get-username-url" type="hidden" value="@org.spend.openam.integration.controller.routes.WelcomeController.getUsername()"/>
+
+    <!-- Page -->
+    <div id="login_form">
+        <div class="main_text">Log in…</div>
+        <div class="row col s12">
+            <div class="input-field col s6">
+                <i class="mdi-action-https prefix"></i>
+                <input id="username" type="text" class="validate">
+                <label for="username">Username</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="mdi-hardware-security prefix"></i>
+                <input id="password" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <button id="login_button" class="btn waves-effect waves-light disabled" type="submit" name="action">
+                Login
+                <i class="mdi-content-send right"></i>
+            </button>
+        </div>
+    </div>
+    <div id="registration_form" class="row col s12">
+        <div class="main_text">… or register new user</div>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="mdi-action-account-circle prefix"></i>
+                <input id="full_name" type="text" class="validate">
+                <label for="full_name">Full Name</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="mdi-communication-email prefix"></i>
+                <input id="email" type="email" class="validate">
+                <label for="email">Email</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <i class="mdi-action-https prefix"></i>
+                <input id="username" type="text" class="validate">
+                <label for="username">Username</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="mdi-hardware-security prefix"></i>
+                <input id="password" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+        </div>
+
+        <button id="registration_button" class="btn waves-effect waves-light disabled" type="submit" name="action">
+            Register
+            <i class="mdi-content-send right"></i>
+        </button>
+    </div>
+}
